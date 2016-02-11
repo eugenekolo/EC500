@@ -30,18 +30,18 @@ minNeighbors
 minSize
 
 Here are some useful points we find:
-#Parameters:
+Parameters:
 
-#scaleFactor: Since some faces may be closer to the camera, they would appear bigger than those faces in the back. The scale factor compensates for this
-#if scaleFactor is too small, it reads false faces; too big it misses some faces
+scaleFactor: Since some faces may be closer to the camera, they would appear bigger than those faces in the back. The scale factor compensates for this
+if scaleFactor is too small, it reads false faces; too big it misses some faces
 
-#minNeighbors:how many objects are detected near the current one before it declares the face found
-#small minNeighbors helps detecting some small faces in crawed pics, but also gives some false readings(repeat detection), reduce saceFactor seems fix that
+minNeighbors:how many objects are detected near the current one before it declares the face found
+small minNeighbors helps detecting some small faces in crawed pics, but also gives some false readings(repeat detection), reduce saceFactor seems fix that
 
-#minSize: gives the size of each window 
-#if faces are too small compared to the whole picture, miniSize has to be set small, ie: carmeet
+minSize: gives the size of each window 
+if faces are too small compared to the whole picture, miniSize has to be set small, ie: carmeet
 
-#steps: determine minisize -> miniNeighbors -> scaleFactor -> miniNeighbors
+tunning steps: determine minisize -> miniNeighbors -> scaleFactor -> miniNeighbors
 
 ※Discrepencies
 
