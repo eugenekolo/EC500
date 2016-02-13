@@ -1,3 +1,5 @@
+#!/bin/bash
+
 tens=`find . -name "10.pgm"`
 for f in $tens
 do
