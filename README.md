@@ -19,15 +19,9 @@ Code credit:Shantnu Tiwari. If you want to understand how the code works, the de
 
 https://realpython.com/blog/python/face-recognition-with-python/
 
-※Feed the program with different images
-
-Photo Credit:
+※Feed the program with different images: see folder "demo".
 
 ※Find the right threshold
-
-scaleFactor
-minNeighbors
-minSize
 
 Here are some useful points we find:
 Parameters:
@@ -46,7 +40,4 @@ if faces are too small compared to the whole picture, miniSize has to be set sma
 
 tunning steps: determine minisize -> miniNeighbors -> scaleFactor -> miniNeighbors
 
-※Discrepencies
-
-※Additional comments
 
