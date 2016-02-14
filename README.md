@@ -25,10 +25,15 @@ http://docs.opencv.org/master/d7/d8b/tutorial_py_face_detection.html#gsc.tab=0
 ### Code
 The code we used is simple and elegant. 
 Load the xml files and run the code. 
-*python face_detect.py abba.png haarcascade_frontalface_default.xml*
-Code credit:Shantnu Tiwari. If you want to understand how the code works, the details are here:
 
+Code credit: Shantnu Tiwari. If you want to understand how the code works, the details are here:
 https://realpython.com/blog/python/face-recognition-with-python/
+
+### Usage
+
+```
+python harrcascadeface_detector.py abba.png haarcascade_frontalface_default.xml*
+```
 
 ### Parameters
 We performed testing with different parameters to our Harr Cascade Face Detector.
@@ -46,14 +51,60 @@ We found tuning in this order to be the easiest to get the right results:
 
 
 ### Results
+TODOTODOTODOTODTOTODTODTODTODTODTODOTO
+TODOTODOTODOTODTOTODTODTODTODTODTODOTO
+TODOTODOTODOTODTOTODTODTODTODTODTODOTO
 
 ##※ Face recognition
-TODO
+>Eigenfaces is the name given to a set of eigenvectors when they are used in the computer vision problem of human face recognition. The approach of using eigenfaces for recognition was developed by Sirovich and Kirby (1987) and used by Matthew Turk and Alex Pentland in face classification. The eigenvectors are derived from the covariance matrix of the probability distribution over the high-dimensional vector space of face images.
+- Wikipedia
+
+What that means to us, is that eigenfaces is a useful algorithm/approach that uses eigenvectors and matrices to create a model for every face. You first feed a number of faces into the algorithm, to *train* it. After it's been trained, you use the *model* that was created to take a guess at the next face image you pass into it. The more training data, the better the results. 
+
 
 ### Code
- TODO
+The full code is available in [eigenface_recognizer.py](src/eigenface_recognizer.py).
+The general flow of the code is as such:
+
+1) Read in the training images
+2) Read in the testing images
+3) Train Eigenfaces into a model, by feeding it training images
+4) Test our model, with the testing images
+5) Print results
 
 ### Usage
-TODO
+Before you can properly use the recognizer, you must create a CSV file that is structured as such:
+
+```
+path,id
+/home/eugenek/code/EC500/assets/att_faces/s8/10.pgm,8
+/home/eugenek/code/EC500/assets/att_faces/s8/1.pgm,8
+...
+```
+
+The `path` is the path to a face image, and the `id` is the correct `id` of the person whose face that image is. In the above example image `s8/10.pgm` and `s8/1.pgm` correspond to `person #8`.
+ 
+You can use  [faces_to_csv.py](src/faces_to_csv.py) to help with this initial data structuring.
+
+And now the real fun can begin!
+```
+eigenface_recognizer.py --training_csv ../assets/all_faces.csv --ratio .5
+[*] TRAINING: 200 images from 200 IDs.
+[*] TESTING: 200 images from 200 IDs.
+[*] We matched 90% correctly
+```
+
+```
+eigenface_recognizer.py --training_csv ../assets/all_faces_except10th.csv --testing_csv ../assets/10th_of_all_faces_organized.csv
+[*] TRAINING: 360 images from 360 IDs.
+[*] TESTING: 40 images from 40 IDs.
+[*] We matched 92% correctly
+```
+
+There's an extra special flag `--ascii`, that you should try out for fun :).
 
 ### Results
+TODOTODOTODOTODTOTODTODTODTODTODTODOTO
+TODOTODOTODOTODTOTODTODTODTODTODTODOTO
+TODOTODOTODOTODTOTODTODTODTODTODTODOTO
+
