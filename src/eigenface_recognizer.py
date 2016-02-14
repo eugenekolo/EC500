@@ -1,4 +1,22 @@
 #!/usr/bin/python
+"""
+Predicts to whom a face image belongs to using Eigenfaces algorithm.
+Call the script with "--help" for help.
+The csv's you feed it must be properly set up. Use the script faces_to_csv.py for this.
+Or take a look at /assets/all_faces.csv for an idea of what it's supposed to look like.
+
+Example1: ./eigenface_recognizer.py --training_csv ../assets/all_faces.csv --ratio .5
+[*] TRAINING: 200 images from 200 IDs.
+[*] TESTING: 200 images from 200 IDs.
+[*] We matched 90% correctly
+
+Example2:
+./eigenface_recognizer.py --training_csv ../assets/all_faces.csv --ratio .9
+[*] TRAINING: 40 images from 40 IDs.
+[*] TESTING: 360 images from 360 IDs.
+[*] We matched 42% correctly
+"""
+
 import cv2
 import cv2.face as cv2face
 import numpy
@@ -15,6 +33,7 @@ def ascii_art(f):
     ASCII_CHARS = [ '#', '?', '%', '.', 'S', '+', '.', '*', ':', ',', '@']
     WIDTH = 50
     QUANT = 25
+
     ## Open, scale, convert to grayscale
     img = Image.open(f)
     (original_width, original_height) = img.size
@@ -34,9 +53,15 @@ def ascii_art(f):
 
 def print_results(ascii=False):
     fmt = '{:<50}{:<10}{:<50}'
-    print(fmt.format("Predicted", "", "Actual"))
     for (predicted, actual) in zip(ascii_art(csvrow['path']), ascii_art(csvrow['path'])):
         print(fmt.format(left, '', right))
+
+
+def split_test_training_data(data, ratio=0.2):
+    """ Split a list of image files by ratio of training:test data """
+    test_size = int(math.floor(ratio*len(data)))
+    random.shuffle(data)
+    return data[test_size:], data[:test_size]
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -59,19 +84,20 @@ if __name__ == "__main__":
     training_csv = args.training_csv
     testing_csv = args.testing_csv
     ratio = args.ratio
+    yesascii = args.ascii
 
-
-    ## Read in the images into a dict that is 'id -> gray scale image data'
-    ## An 'id' is a specimen #, so there is 40 'id's for ATT face set
-    trainingdict = {} # This is a helper dict for printing at the end, path -> img, id
+    ## Read in the images into a dict that is: path -> img, id
+    trainingdict = {}
     with open(training_csv, 'r') as csvfile:
         csvreader = csv.DictReader(csvfile)
         for csvrow in csvreader:
             img = cv2.imread(csvrow['path'], cv2.IMREAD_GRAYSCALE)
             trainingdict[csvrow['path']] = (img, int(csvrow['id']))
 
-    ## Read in the testing data into a diction that is 'id -> img'
-    testingdict = defaultdict(list) # This is a helper dict for printing at the end, path -> img, id
+    TOTAL_IMAGES = len(trainingdict)
+
+    ## Read in the testing data into a dict that is: path -> img, id
+    testingdict = defaultdict(list)
     if testing_csv:
         with open(testing_csv, 'r') as csvfile:
             csvreader = csv.DictReader(csvfile)
@@ -95,30 +121,39 @@ if __name__ == "__main__":
     model = cv2face.createEigenFaceRecognizer()
     model.train(numpy.array(trainingimgs), numpy.array(trainingids))
 
+    ## Test our model and see how accurate we are
+    correct = 0
+    iscorrect = False
+    for path,x in testingdict.iteritems():
+        img = x[0]
+        actualid = x[1]
+        predictionid = model.predict(numpy.array(img))
+        if predictionid == actualid: # We got it!
+            correct += 1
+            iscorrect = True
+        else: # Dang it!
+            predictionpath = "" # BUG: If no id is found, cause they all went into testing, this will fail.
+            for path2,x2 in trainingdict.iteritems():
+                if x2[1] == actualid:
+                    predictionpath = path2
+                    break
+            if yesascii:
+                fmt = '{:<50}{:<10}{:<50}'
+                print(fmt.format("Predicted " + str(predictionid) + " " + predictionpath, "", "Actual " + str(actualid) + " " + path))
+                for (predictionimg, actualimg) in zip(ascii_art(predictionpath), ascii_art(path)):
+                    print(fmt.format(predictionimg, '', actualimg))
+                print("\n\n")
+            else:
+                pass
+               # TODO
+               # Python imaging is uuuuugh
+
+    ## Print some data
     TRAINING_IMAGES = len(trainingimgs)
     TRAINING_IDS = len(trainingids)
     TESTING_IMAGES = len(testingimgs)
     TESTING_IDS = len(testingids)
     print("[*] TRAINING: {} images from {} IDs.".format(TRAINING_IMAGES, TRAINING_IDS))
     print("[*] TESTING: {} images from {} IDs.".format(TESTING_IMAGES, TESTING_IDS))
-
-    ## Test our model and see how accurate we are
-    correct = 0
-    iscorrect = False
-    for path,x in testingdict.iteritems():
-        img = x[0]
-        actual = x[1]
-        prediction = model.predict(numpy.array(img))
-        if prediction == actual:
-            correct += 1
-            iscorrect = True
-
-                ## Print our results :)
-                #if args.ascii:
-                #    print_results(iscorrect, prediction_path, actual_path, ascii=True)
-                #else:
-                #    print_results(iscorrect, preduction_path, actual_path)
-                #print("\n\n")
-
     print("[*] We matched {}% correctly".format(100*correct/(TESTING_IMAGES)))
 
