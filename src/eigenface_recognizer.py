@@ -38,13 +38,6 @@ def print_results(ascii=False):
     for (predicted, actual) in zip(ascii_art(csvrow['path']), ascii_art(csvrow['path'])):
         print(fmt.format(left, '', right))
 
-
-def split_test_training_data(data, ratio=0.2):
-    """ Split a list of image files by ratio of training:test data """
-    test_size = int(math.floor(ratio*len(data)))
-    random.shuffle(data)
-    return data[test_size:], data[:test_size]
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--training_csv', required=True,
@@ -77,7 +70,6 @@ if __name__ == "__main__":
             img = cv2.imread(csvrow['path'], cv2.IMREAD_GRAYSCALE)
             trainingdict[csvrow['path']] = (img, int(csvrow['id']))
 
-    TOTAL_IMAGES = len(trainingdict)
     ## Read in the testing data into a diction that is 'id -> img'
     testingdict = defaultdict(list) # This is a helper dict for printing at the end, path -> img, id
     if testing_csv:

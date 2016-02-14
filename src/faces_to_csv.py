@@ -24,4 +24,4 @@ if __name__ == "__main__":
                 if f.endswith(".pgm"):
                     path = os.path.abspath(os.path.join(dirpath, f))
                     csvwriter.writerow({'path':path, 'id':id_})
-                    id_ += 1
+            id_ += 1
