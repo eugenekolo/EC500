@@ -1,5 +1,5 @@
 ### OpenCV 3.0 + Python 2.7 environment set up on Ubuntu 14.04  
-This is a simple tutorial of setting up opencv 3.0 and python 2.7 environment on Ubuntu 14.04 we used for the homework.  
+This is a simple tutorial of setting up opencv 3.0 and python 2.7 environment on Ubuntu 14.04..  
   
 #### 1. Pre-install procedure  
 ##### 1.1 System update  
