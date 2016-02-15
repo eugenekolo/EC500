@@ -51,9 +51,15 @@ We found tuning in this order to be the easiest to get the right results:
 
 
 ### Results
-TODOTODOTODOTODTOTODTODTODTODTODTODOTO
-TODOTODOTODOTODTOTODTODTODTODTODTODOTO
-TODOTODOTODOTODTOTODTODTODTODTODTODOTO
+#### ATT scaleFactor: 1.04; minNeighbors: 2; minSize 1010
+![att1 1.04 2 1010](assets/att1_1.04_2_1010.jpeg)
+
+#### ATT scaleFactor: 1.05; minNeighbors: 1; minSize 1010
+![att1 1.05 1 1010](assets/att1_1.05_1_1010.jpg)
+
+Notice the overlapping boxes, and other errors with the lower minNeighbors.
+
+More results can be found in `/results`.
 
 ##※ Face recognition
 >Eigenfaces is the name given to a set of eigenvectors when they are used in the computer vision problem of human face recognition. The approach of using eigenfaces for recognition was developed by Sirovich and Kirby (1987) and used by Matthew Turk and Alex Pentland in face classification. The eigenvectors are derived from the covariance matrix of the probability distribution over the high-dimensional vector space of face images.
@@ -66,11 +72,11 @@ What that means to us, is that eigenfaces is a useful algorithm/approach that us
 The full code is available in [eigenface_recognizer.py](src/eigenface_recognizer.py).
 The general flow of the code is as such:
 
-1) Read in the training images
-2) Read in the testing images
-3) Train Eigenfaces into a model, by feeding it training images
-4) Test our model, with the testing images
-5) Print results
+1) Read in the training images  
+2) Read in the testing images  
+3) Train Eigenfaces into a model, by feeding it training images  
+4) Test our model, with the testing images  
+5) Print results  
 
 ### Usage
 Before you can properly use the recognizer, you must create a CSV file that is structured as such:
