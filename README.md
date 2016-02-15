@@ -79,6 +79,7 @@ This is the result of balancing, detection time, and detection rate.
 
 Then a  maxsize was added to reduce error, the result can be found here:
 https://github.com/eugenekolo/EC500/issues/1
+
 The result is very promising, because all the false reading was removed. We end up with 82.44 detection rate.
 
 
