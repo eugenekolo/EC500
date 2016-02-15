@@ -81,7 +81,7 @@ These parameters are the result of balancing detection time and detection rate.
 Then a  maxSize was added to reduce error, the final result can be found here:
 https://github.com/eugenekolo/EC500/issues/1
 
-The final result is very promising, because all the false readings were removed. We end up with 82.44% detection rate.
+The final result is very promising, because all the false readings were removed. We ended up with 82.44% detection rate.
 
 The complete results on practises face detection can be found in `/results`.
 
