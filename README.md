@@ -52,10 +52,10 @@ We found tuning in this order to be the easiest to get the right results:
 
 ### Results
 #### ATT scaleFactor: 1.04; minNeighbors: 2; minSize 1010
-![att1 1.04 2 1010](assets/att1_1.04_2_1010.jpeg)
+![att1 1.04 2 1010](results/att1_1.04_2_1010.jpeg)
 
 #### ATT scaleFactor: 1.05; minNeighbors: 1; minSize 1010
-![att1 1.05 1 1010](assets/att1_1.05_1_1010.jpg)
+![att1 1.05 1 1010](results/att1_1.05_1_1010.jpg)
 
 Notice the overlapping boxes, and other errors with the lower minNeighbors.
 
