@@ -56,9 +56,11 @@ Useful parameters:
 * **minNeighbors**: The number of objects that must be detected near the current one, before the face is declared found. A low **minNeighbors** helps to detect small faces in crowded places, but also increases the number of false positives.
 
 * **minSize**: The minimum size of each face window (e.g. the square). If faces are too small compared to the whole picture, **minSize** has to bet smaller. 
+* 
+* **maxSize**: The maximum size of each face window (e.g. the square). If faces are too large compared to the whole picture, **maxSize** has to bet larger. It can also be used to reduce errors by removing false readings that are too large compared to a reasonable face size.
 
 We found tuning in this order to be the easiest to get the right results:  
-**minSize** -> **minNeighbors** -> **scaleFactor** -> **minNeighbors**
+**minSize** -> **minNeighbors** -> **scaleFactor** -> **minNeighbors** -> **mazSize**
 
 
 ### Results
@@ -74,16 +76,14 @@ Notice the overlapping boxes, and other errors with the lower minNeighbors.
 When using another AT&T set, which contains 900 faces, the result is:
 #### ATT scaleFactor: 1.001; minNeighbors: 2; minSize 1515
 ![att4 1.001 2 1515 840](results/att4_1.001_2_1515_840.jpeg)
-This is the result of balancing, detection time, and detection rate.
+These parameters are the result of balancing, detection time, and detection rate.
 
-
-Then a  maxsize was added to reduce error, the result can be found here:
+Then a  maxSize was added to reduce error, the final result can be found here:
 https://github.com/eugenekolo/EC500/issues/1
 
-The result is very promising, because all the false reading was removed. We end up with 82.44 detection rate.
+The final result is very promising, because all the false reading was removed. We end up with 82.44 detection rate.
 
-
-More results on practises face detection can be found in `/results`.
+The complete results on practises face detection can be found in `/results`.
 
 ##※ Face recognition
 >Eigenfaces is the name given to a set of eigenvectors when they are used in the computer vision problem of human face recognition. The approach of using eigenfaces for recognition was developed by Sirovich and Kirby (1987) and used by Matthew Turk and Alex Pentland in face classification. The eigenvectors are derived from the covariance matrix of the probability distribution over the high-dimensional vector space of face images.
