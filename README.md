@@ -1,7 +1,7 @@
 EC500 Group 2: Utilize OpenCV for human face detection (and recognition)
 
 ##※ Overview
-In this mini-project we used [OpenCV](http://opencv.org/) to implement human face detection, and recognition. Programming was done in python, using the OpenCV python bindings. 
+In this mini-project we used [OpenCV](http://opencv.org/) to implement human face detection, and recognition. Programming was done in python, using the OpenCV python bindings.  Environment set up instructions can be found in [ENV_SETUP.md](/ENV_SETUP.md)
 
 ### Requirements
 
@@ -110,7 +110,11 @@ eigenface_recognizer.py --training_csv ../assets/all_faces_except10th.csv --test
 There's an extra special flag `--ascii`, that you should try out for fun :).
 
 ### Results
-TODOTODOTODOTODTOTODTODTODTODTODTODOTO
-TODOTODOTODOTODTOTODTODTODTODTODTODOTO
-TODOTODOTODOTODTOTODTODTODTODTODTODOTO
+When fed just 50% of the ATT face set (at random), the trained model was able to predict ~90% correct of the remaining 50% used for test.
 
+The increase in skill drops off steepy, as at 90% of the ATT face set used for training only resulted in ~92% correct predictions of the remaining 10%.
+
+On visual inspection of the errors it gets using the ATT face set, even the team is unable to discern differences between the faces of the different people.
+
+![eigenface recognizer results](/results/eigenface_recognizer_results.png)
+![wrong people](/results/wrongpeople.png)
