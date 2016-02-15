@@ -60,7 +60,7 @@ Useful parameters:
 * **maxSize**: The maximum size of each face window (e.g. the square). If faces are too large compared to the whole picture, **maxSize** has to bet larger. It can also be used to reduce errors by removing false readings that are too large compared to a reasonable face size.
 
 We found tuning in this order to be the easiest to get the right results:  
-**minSize** -> **minNeighbors** -> **scaleFactor** -> **minNeighbors** -> **mazSize**
+**minSize** -> **minNeighbors** -> **scaleFactor** -> **minNeighbors** -> **maxSize**
 
 
 ### Results
@@ -79,7 +79,7 @@ When using another AT&T set, which contains 900 faces, the result is:
 These parameters are the result of balancing detection time and detection rate.
 
 Then a  maxSize was added to reduce error, the final result can be found here:
-https://github.com/eugenekolo/EC500/issues/1
+https://cloud.githubusercontent.com/assets/16802335/13025359/b1fda6e0-d1d3-11e5-8f78-4d977bc2222d.jpeg
 
 The final result is very promising, because all the false readings were removed. We ended up with 82.44% detection rate.
 
