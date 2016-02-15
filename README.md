@@ -32,7 +32,7 @@ https://realpython.com/blog/python/face-recognition-with-python/
 ### Usage
 
 ```
-python harrcascadeface_detector.py abba.png haarcascade_frontalface_default.xml*
+python harrcascadeface_detector.py ../assets/abba.png ../assets/haarcascade_frontalface_default.xml
 ```
 
 ### Parameters
