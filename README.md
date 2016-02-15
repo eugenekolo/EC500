@@ -20,7 +20,6 @@ In this mini-project we used [OpenCV](http://opencv.org/) to implement human fac
 ##※ Face detection
 >Face detection can be regarded as a specific case of object-class detection. In object-class detection, the task is to find the locations and sizes of all objects in an image that belong to a given class. Examples include upper torsos, pedestrians, and cars.
 - Wikipedia
-
 Haar feature-based cascade is a widely-used and mature object detectioin algorithm. OpenCV has these built-in classifiers(e.g. cv2.CascadeClassifier()). It is based on such features as eye being darker than nose/cheek areas and the bridge of our nose. OpenCV has also sorted out certain features to optimize the performance by training it with image database. 
 
 You can find details of this algorithm in OpenCV tutorial page here:
@@ -63,6 +62,7 @@ We found tuning in this order to be the easiest to get the right results:
 
 
 ### Results
+When a 32-face set is used:
 #### ATT scaleFactor: 1.04; minNeighbors: 2; minSize 1010
 ![att1 1.04 2 1010](results/att1_1.04_2_1010.jpeg)
 
@@ -70,6 +70,11 @@ We found tuning in this order to be the easiest to get the right results:
 ![att1 1.05 1 1010](results/att1_1.05_1_1010.jpg)
 
 Notice the overlapping boxes, and other errors with the lower minNeighbors.
+
+When using another AT&T set, which contains 900 faces, the result is:
+![att4 1.001 2 1515 840](results/att4_1.001_2_1515_840.jpeg)
+
+
 
 More results can be found in `/results`.
 
