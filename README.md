@@ -25,7 +25,9 @@ http://docs.opencv.org/master/d7/d8b/tutorial_py_face_detection.html#gsc.tab=0
 ### Code
 The code we used is simple and elegant. It goes like:
 1)Create haar cascade
+
 2)Load the image of interest
+
 3)Detect number of faces in the image and put a rectangle around it
 
 Load the xml files and run the code. 
