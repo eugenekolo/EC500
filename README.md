@@ -83,7 +83,7 @@ https://cloud.githubusercontent.com/assets/16802335/13025359/b1fda6e0-d1d3-11e5-
 
 The final result is very promising, because all the false readings were removed. We ended up with 82.44% detection rate.
 
-The complete results on practises face detection can be found in `/results`.
+The complete results on practising face detection can be found in `/results`.
 
 ##※ Face recognition
 >Eigenfaces is the name given to a set of eigenvectors when they are used in the computer vision problem of human face recognition. The approach of using eigenfaces for recognition was developed by Sirovich and Kirby (1987) and used by Matthew Turk and Alex Pentland in face classification. The eigenvectors are derived from the covariance matrix of the probability distribution over the high-dimensional vector space of face images.
