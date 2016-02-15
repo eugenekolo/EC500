@@ -20,6 +20,7 @@ In this mini-project we used [OpenCV](http://opencv.org/) to implement human fac
 ##※ Face detection
 >Face detection can be regarded as a specific case of object-class detection. In object-class detection, the task is to find the locations and sizes of all objects in an image that belong to a given class. Examples include upper torsos, pedestrians, and cars.
 - Wikipedia
+
 Haar feature-based cascade is a widely-used and mature object detectioin algorithm. OpenCV has these built-in classifiers(e.g. cv2.CascadeClassifier()). It is based on such features as eye being darker than nose/cheek areas and the bridge of our nose. OpenCV has also sorted out certain features to optimize the performance by training it with image database. 
 
 You can find details of this algorithm in OpenCV tutorial page here:
