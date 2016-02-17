@@ -25,13 +25,12 @@ You can find details of this algorithm in OpenCV tutorial page here:
 http://docs.opencv.org/master/d7/d8b/tutorial_py_face_detection.html#gsc.tab=0
 
 Haar feature-based cascade is a widely-used and mature object detectioin algorithm. OpenCV has these built-in classifiers(e.g. cv2.CascadeClassifier()). It is based on such features as eye being darker than nose/cheek areas and the bridge of our nose. OpenCV has also sorted out certain features to optimize the performance by training it with image database. 
-Object Detection using Haar feature-based cascade classifiers is an effective object detection method proposed by Paul Viola and Michael Jones in their paper, “Rapid Object Detection using a Boosted Cascade of Simple Features” in 2001. 
+
+Object Detection using Haar feature-based cascade classifiers is an effective object detection method proposed by Paul Viola and Michael Jones in their paper, “Rapid Object Detection using a Boosted Cascade of Simple Features” in 2001. In an image, most of the image region is non-face region.So it is a better idea to have a simple method to check if a window is not a face region. If it is not, discard it in a single shot. For this they introduced the concept of Cascade of Classifiers. Instead of applying all the 6000 features on a window, group the features into different stages of classifiers and apply one-by-one.If a window fails the first stage, discard it. We don’t consider remaining features on it. If it passes, apply the second stage of features and continue the process. The window which passes all stages is a face region.
 
 The first feature selected seems to focus on the property that the region of the eyes is often darker than the region of the nose and cheeks.The second feature selected relies on the property that the eyes are darker than the bridge of the nose.
 
 We select the features with minimum error rate, which means they are the features that best classifies the face and non-face images. (The process is not as simple as this. Each image is given an equal weight in the beginning. After each classification, weights of misclassified images are increased. Then again same process is done. New error rates are calculated. Also new weights. The process is continued until required accuracy or error rate is achieved or required number of features are found).
-
-
 
 ### Code
 The code we used is simple and elegant. It goes like:
