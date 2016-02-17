@@ -32,6 +32,8 @@ The first feature selected seems to focus on the property that the region of the
 
 We select the features with minimum error rate, which means they are the features that best classifies the face and non-face images. (The process is not as simple as this. Each image is given an equal weight in the beginning. After each classification, weights of misclassified images are increased. Then again same process is done. New error rates are calculated. Also new weights. The process is continued until required accuracy or error rate is achieved or required number of features are found).
 
+There is one thing to be noticed that, if you are using OpenCV 3.0.0 or higher, you need to change "cv2.cv.CV_HAAR_SCALE_IMAGE" to "cv2.CASCADE_SCALE_IMAGE". That is a small difference between OpenCV 2 and 3.
+
 ### Code
 The code we used is simple and elegant. It goes like:
 
