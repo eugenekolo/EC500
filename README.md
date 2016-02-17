@@ -26,7 +26,9 @@ http://docs.opencv.org/master/d7/d8b/tutorial_py_face_detection.html#gsc.tab=0
 
 Haar feature-based cascade is a widely-used and mature object detectioin algorithm. OpenCV has these built-in classifiers(e.g. cv2.CascadeClassifier()). It is based on such features as eye being darker than nose/cheek areas and the bridge of our nose. OpenCV has also sorted out certain features to optimize the performance by training it with image database. 
 Object Detection using Haar feature-based cascade classifiers is an effective object detection method proposed by Paul Viola and Michael Jones in their paper, “Rapid Object Detection using a Boosted Cascade of Simple Features” in 2001. 
+
 The first feature selected seems to focus on the property that the region of the eyes is often darker than the region of the nose and cheeks.The second feature selected relies on the property that the eyes are darker than the bridge of the nose.
+
 We select the features with minimum error rate, which means they are the features that best classifies the face and non-face images. (The process is not as simple as this. Each image is given an equal weight in the beginning. After each classification, weights of misclassified images are increased. Then again same process is done. New error rates are calculated. Also new weights. The process is continued until required accuracy or error rate is achieved or required number of features are found).
 
 
