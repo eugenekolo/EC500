@@ -1,4 +1,4 @@
-EC500 Group 2: Utilize OpenCV for human face detection (and recognition)
+﻿EC500 Group 2: Utilize OpenCV for human face detection (and recognition)
 
 ##※ Overview
 In this mini-project we used [OpenCV](http://opencv.org/) to implement human face detection, and recognition. Programming was done in python, using the OpenCV python bindings.  Environment set up instructions can be found in [ENV_SETUP.md](/ENV_SETUP.md)
@@ -87,7 +87,7 @@ When using another AT&T set, which contains 900 faces, the result is:
 These parameters are the result of balancing detection time and detection rate.
 
 Then a  maxSize was added to reduce error, the final result can be found here:
-https://cloud.githubusercontent.com/assets/16802335/13025359/b1fda6e0-d1d3-11e5-8f78-4d977bc2222d.jpeg
+![att4 1.001 2 1515 3030 742](results/att4 1.001 2 1515 3030 742.jpeg)
 
 The final result is very promising, because all the false readings were removed. We ended up with 82.44% detection rate.
 
