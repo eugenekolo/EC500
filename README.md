@@ -82,11 +82,6 @@ When a 32-face set is used:
 Notice the overlapping boxes, and other errors with the lower minNeighbors.
 
 When using another AT&T set, which contains 900 faces, the result is:
-#### ATT scaleFactor: 1.001; minNeighbors: 2; minSize 1515
-![att4 1.001 2 1515 840](results/att4_1.001_2_1515_840.jpeg)
-These parameters are the result of balancing detection time and detection rate.
-
-Then a  maxSize was added to reduce error, the final result can be found here:
 ![att4 1.001 2 1515 3030 742](results/att4 1.001 2 1515 3030 742.jpeg)
 
 The final result is very promising, because all the false readings were removed. We ended up with 82.44% detection rate.
