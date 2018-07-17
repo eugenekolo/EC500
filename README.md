@@ -1,7 +1,7 @@
 ﻿
 An OpenCV face recognition and detection example originally done for a school project.
 
-##※ Overview
+## ※ Overview
 In this mini-project we used [OpenCV](http://opencv.org/) to implement human face detection, and recognition. Programming was done in python, using the OpenCV python bindings.  Environment set up instructions can be found in [ENV_SETUP.md](/ENV_SETUP.md)
 
 ### Requirements
@@ -18,11 +18,11 @@ In this mini-project we used [OpenCV](http://opencv.org/) to implement human fac
       - [x] Software on Github
       - [x] Executable on Linux platform
 
-##※ Face detection
+## ※ Face detection
 >Face detection can be regarded as a specific case of object-class detection. In object-class detection, the task is to find the locations and sizes of all objects in an image that belong to a given class. Examples include upper torsos, pedestrians, and cars.
 - Wikipedia
 
-####You can find details of this algorithm in OpenCV tutorial page here:
+#### You can find details of this algorithm in OpenCV tutorial page here:
 http://docs.opencv.org/master/d7/d8b/tutorial_py_face_detection.html#gsc.tab=0
 
 Haar feature-based cascade is a widely-used and mature object detectioin algorithm. OpenCV has these built-in classifiers(e.g. cv2.CascadeClassifier()). It is based on such features as eye being darker than nose/cheek areas and the bridge of our nose. OpenCV has also sorted out certain features to optimize the performance by training it with image database. 
