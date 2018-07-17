@@ -1,4 +1,5 @@
-﻿EC500 Group 2: Utilize OpenCV for human face detection (and recognition)
+﻿
+An OpenCV face recognition and detection example originally done for a school project.
 
 ##※ Overview
 In this mini-project we used [OpenCV](http://opencv.org/) to implement human face detection, and recognition. Programming was done in python, using the OpenCV python bindings.  Environment set up instructions can be found in [ENV_SETUP.md](/ENV_SETUP.md)
